@@ -10,7 +10,23 @@
     "paths": {
         "/api/contacts/{id}/addresses":{
             "post":{
-                "description": "Create new address"
+                "description": "Create new address",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "idContact",
+                        "in": "path"
+                    }
+                ],
+                "requestBody":{
+                    "description": "Create new address",
+                    "content": {
+
+                    }
+                }
 
             },
             "get":{
