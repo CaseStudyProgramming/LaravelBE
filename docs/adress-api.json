@@ -50,7 +50,7 @@
                     }
                 },
                 "responses": {
-                    "200":{
+                    "201":{
                         "description": "Succes create address",
                         "content": {
                             "application/json":{
@@ -58,7 +58,29 @@
                                     "type": "object",
                                     "properties": {
                                         "data":{
-                                            "type": "object"
+                                            "type": "object",
+                                            "properties": {
+                                                "id":{
+                                                    "type": "number"
+                                                },
+                                                "street":{
+                                                    "type": "string"
+                                                },
+                                                "city":{
+                                                    "type": "string"
+                                                },
+                                                "province":{
+                                                    "type": "string"
+                                                },
+                                                "country":{
+                                                    "type": "string"
+                                                },
+                                                "pastal_code":{
+                                                    "type": "string"
+                                                }
+
+                                            }
+
                                         },
                                         "errors":{
                                             "type": "object"
@@ -72,18 +94,234 @@
 
             },
             "get":{
-               "description": "Get list addresses"
+               "description": "Get list addresses",
+               "responses": {
+                "200":{
+                    "description": "List addresses",
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "data":{
+                                        "type": "array",
+                                        "items":{
+                                            "type": "object",
+                                            "properties": {
+                                                "id":{
+                                                    "type": "number"
+                                                },
+                                                "street":{
+                                                    "type": "string"
+                                                },
+                                                "city":{
+                                                    "type": "string"
+                                                },
+                                                "province":{
+                                                    "type": "string"
+                                                },
+                                                "country":{
+                                                    "type": "string"
+                                                },
+                                                "pastal_code":{
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "errors":{
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+               }
             }
         },
         "/api/contacts/{idContact}/addresses/{idAddress}":{
             "get":{
-                "description": "Get address"
+                "description": "Get address",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "idContact",
+                        "in": "path"
+                    },
+                    {
+                        "name": "idAddress",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200":{
+                        "description": "Succes create address",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "data":{
+                                            "type": "object",
+                                            "properties": {
+                                                "id":{
+                                                    "type": "number"
+                                                },
+                                                "street":{
+                                                    "type": "string"
+                                                },
+                                                "city":{
+                                                    "type": "string"
+                                                },
+                                                "province":{
+                                                    "type": "string"
+                                                },
+                                                "country":{
+                                                    "type": "string"
+                                                },
+                                                "pastal_code":{
+                                                    "type": "string"
+                                                }
+
+                                            }
+
+                                        },
+                                        "errors":{
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "put":{
-                "description": "Update address"
+                "description": "Update address",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "idContact",
+                        "in": "path"
+                    },
+                    {
+                        "name": "idAddress",
+                        "in": "path"
+                    }
+                ],
+                "requestBody":{
+                    "description": "Update existing contact",
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "street":{
+                                        "type": "string"
+                                    },
+                                    "city":{
+                                        "type": "string"
+                                    },
+                                    "province":{
+                                        "type": "string"
+                                    },
+                                    "country":{
+                                        "type": "string"
+                                    },
+                                    "pastal_code":{
+                                        "type": "string"
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "Update existing address",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "data":{
+                                            "type": "object",
+                                            "properties": {
+                                                "id":{
+                                                    "type": "number"
+                                                },
+                                                "street":{
+                                                    "type": "string"
+                                                },
+                                                "city":{
+                                                    "type": "string"
+                                                },
+                                                "province":{
+                                                    "type": "string"
+                                                },
+                                                "country":{
+                                                    "type": "string"
+                                                },
+                                                "pastal_code":{
+                                                    "type": "string"
+                                                }
+
+                                            }
+
+                                        },
+                                        "errors":{
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "delete":{
-                "description": "Delete address"
+                "description": "Delete address",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "idContact",
+                        "in": "path"
+                    },
+                    {
+                        "name": "idAddress",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200":{
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "data":{
+                                            "type": "boolean"
+                                        },
+                                        "errors":{
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
