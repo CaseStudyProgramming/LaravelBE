@@ -24,7 +24,49 @@
                 "requestBody":{
                     "description": "Create new address",
                     "content": {
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "street":{
+                                        "type": "string"
+                                    },
+                                    "city":{
+                                        "type": "string"
+                                    },
+                                    "province":{
+                                        "type": "string"
+                                    },
+                                    "country":{
+                                        "type": "string"
+                                    },
+                                    "pastal_code":{
+                                        "type": "string"
+                                    }
 
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "Succes create address",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "data":{
+                                            "type": "object"
+                                        },
+                                        "errors":{
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
 
