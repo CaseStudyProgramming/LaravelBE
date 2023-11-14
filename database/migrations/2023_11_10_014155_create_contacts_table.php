@@ -19,7 +19,11 @@ return new class extends Migration
             $table->string("last_name", 100)-> nullable();
             $table->string("email", 200)-> nullable();
             $table->string("phone", 20)-> nullable(false);
+            $table->unsignedBigInteger("user_id")->nullable(false);
             $table->timestamps();
+
+            $table->foreign("user_id")->on("users")->references("id");
+
         });
     }
 
