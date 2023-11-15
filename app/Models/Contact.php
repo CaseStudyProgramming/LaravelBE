@@ -14,7 +14,7 @@ class Contact extends Model
     protected $incrementing = "true";
     protected $timestamps = "true";
 
-    public function contacts(): BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(Contact::class, 'user_id', 'id');
     }

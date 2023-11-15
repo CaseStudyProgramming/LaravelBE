@@ -15,7 +15,7 @@ class User extends Model
     protected $incrementing = "true";
 
 
-    public function user(): HasMany
+    public function contacts(): HasMany
     {
         return $this->hasMany(Contact::class, 'user_id', 'id');
     }
